@@ -41,14 +41,12 @@ def callback():
     user_info = user_info_response.json()
     birthyear = int(user_info['response']['birthyear'])
     gender = user_info['response']['gender']
-    if birthyear < 1974:
-        flash('1974년 이전 출생자는 가입할 수 없습니다.')
-        return redirect(url_for('index'))
-    if gender == 'M':
-        flash('남성은 가입할 수 없습니다.')
-        return redirect(url_for('index'))
-    elif gender == 'F':
-        return redirect('https://forms.gle/nc2Ctv3EyFKraUj38') #구글폼주소
+    if gender == 'F':
+        return redirect('https://forms.gle/nc2Ctv3EyFKraUj38') #구글 폼 주소
+    elif gender == 'M':
+        return render_template('man.html', user_info=user_info, not_allowed=True)
+    elif birthyear < 1974:
+        return render_template('old.html', user_info=user_info, not_allowed=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
