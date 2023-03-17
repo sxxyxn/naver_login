@@ -39,11 +39,16 @@ def callback():
     headers = {'Authorization': f'Bearer {access_token}'}
     user_info_response = requests.get(user_info_url, headers=headers)
     user_info = user_info_response.json()
+    birthyear = int(user_info['response']['birthyear'])
     gender = user_info['response']['gender']
-    if gender == 'F':
-        return redirect('https://forms.gle/nc2Ctv3EyFKraUj38') #구글 폼 주소
-    else:
-        return render_template('user_info.html', user_info=user_info, not_allowed=True)
+    if birthyear < 1974:
+        flash('1974년 이전 출생자는 가입할 수 없습니다.')
+        return redirect(url_for('index'))
+    if gender == 'M':
+        flash('남성은 가입할 수 없습니다.')
+        return redirect(url_for('index'))
+    elif gender == 'F':
+        return redirect('https://forms.gle/nc2Ctv3EyFKraUj38') #구글폼주소
 
 if __name__ == '__main__':
     app.run(debug=True)
