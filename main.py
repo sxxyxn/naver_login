@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 client_id = 'R7W0PJBzq9oU3P6U5X0H'
 client_secret = 'WXJ473DMdl'
-redirect_uri = 'http://localhost:5000/callback'
+redirect_uri = 'https://signup-sxxyxn.koyeb.app/callback'
 authorize_url = 'https://nid.naver.com/oauth2.0/authorize'
 token_url = 'https://nid.naver.com/oauth2.0/token'
 user_info_url = 'https://openapi.naver.com/v1/nid/me'
