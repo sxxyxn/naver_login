@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1974년 이전 출생자는 가입할 수 없습니다.</title>
+    <script>
+        window.onload = function() {
+            const notAllowed = {{ not_allowed|tojson }};
+            if (notAllowed) {
+                alert('1974년 이전 출생자는 가입할 수 없습니다.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="/">다시 로그인 페이지로 돌아가기</a>
+</body>
+</html>
