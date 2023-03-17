@@ -41,7 +41,7 @@ def callback():
     user_info = user_info_response.json()
     gender = user_info['response']['gender']
     if gender == 'F':
-        return redirect('http://google.com') #구글 폼 주소
+        return redirect('https://forms.gle/nc2Ctv3EyFKraUj38') #구글 폼 주소
     else:
         return render_template('user_info.html', user_info=user_info, not_allowed=True)
 
