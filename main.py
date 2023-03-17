@@ -41,7 +41,7 @@ def callback():
     user_info = user_info_response.json()
     birthyear = int(user_info['response']['birthyear'])
     gender = user_info['response']['gender']
-    if birthyear > 1974:
+    if birthyear >= 1974:
         if gender == 'F':
             return redirect('https://forms.gle/nc2Ctv3EyFKraUj38') #구글 폼 주소
         else:
